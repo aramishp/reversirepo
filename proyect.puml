@@ -1,7 +1,7 @@
 @startuml Proyect
 class GameControll {
-    +model : Game
-    +view : GameConsoleView
+    +model : GameBase
+    +view : GameView
     run_game()
 }
 
@@ -11,10 +11,28 @@ class Board {
     +mat : matrix
     create_board()
     get_cell()   
-    dupdate_cell()
+    update_cell()
     score()
-    __eq__()
     print_board(): 
+}
+
+class GameBase {
+    {static} directions : list
+    +high : int
+    +width : int
+    +file_path : str
+    make_file()
+    is_valid_move() 
+    place_piece()
+    is_out_of_range()
+    is_terminated()
+    change_turn()
+    select_winner()  
+    can_move()
+    ai_move()
+    choose_move()
+    minimax()
+    valid_moves()  
 }
 
 class Game {
@@ -30,9 +48,14 @@ class Game {
     is_terminated()
     change_turn()
     select_winner()    
+    ai_move()
+    choose_move()
+    minimax()
+    valid_moves()  
 }
 
-class Gamefile {
+
+class GameFile {
     +board : Board
     +file_path : str
     +winner : str
@@ -66,7 +89,8 @@ class GameConsoleView {
     get_position()   
     display_score()
     not_move_msg()
-    
+    game_mode()
+    select_dif()
 }
 
 class GameView {
@@ -79,6 +103,8 @@ class GameView {
     {abstract} get_position()
     {abstract} display_score()
     {abstract} display_board()
+    {abstract} game_mode()
+    {abstract} select_dif()
 }
 
 GameView <|-- GameConsoleView
@@ -86,6 +112,8 @@ Game *-- GameView
 
 BoardView <|-- BoardConsoleView
 Board *-- BoardView
+
+GameBase <|-- Game
 
 Players o-- GameConsoleView
 BoardConsoleView *-- GameConsoleView
@@ -102,4 +130,6 @@ GameFile *-- Game
 
 Board *-- GameFile
 Players o-- GameFile
+
+
 @enduml

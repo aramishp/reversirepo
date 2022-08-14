@@ -37,7 +37,7 @@ class Board:
             print(self.mat[i], file = dest)
         print(file=dest)
 
-
+    #Function used just for debugging
     def print_board2(self):
         for i in range(self.high):
             for j in range(self.width):

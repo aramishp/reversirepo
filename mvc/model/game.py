@@ -1,7 +1,6 @@
 from cmath import inf
 import random
 import copy
-from re import M
 from model.players import Players
 from model.gamefile import Gamefile
 from model.gamebase import GameBase

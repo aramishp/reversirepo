@@ -107,6 +107,7 @@ class Game(GameBase):
                         return True
         return False
 
+    #Old ai player, project part 3
     def ai_move(self, player: Players):
         better_locations = []
         high_score = self.board.score(player)

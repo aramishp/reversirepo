@@ -38,8 +38,6 @@ class GameControll:
 
             if player == Players.BLACK_PLAYER and gamemode == self.PVAIMODE:  
                 player_position = self.model.choose_move(difficulty)
-                #print(player_position)
-                #player_position = self.model.ai_move(player)
 
             else:
                 player_position = self.view.get_position()

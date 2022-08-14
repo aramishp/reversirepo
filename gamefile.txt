@@ -1,0 +1,11 @@
+14-08-2022 18:19:48
+
+Its a Draw!
+
+['X', 'O', 'O', 'X']
+['O', 'O', 'O', 'X']
+['O', 'O', 'X', 'X']
+['O', 'X', 'X', 'X']
+
+Player X your score is 8
+Player O your score is 8

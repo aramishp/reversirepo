@@ -181,7 +181,7 @@ class Game(GameBase):
         moves = holdboard.valid_moves(player)
         hold = float(-inf)
         best_move = moves[0]
-       
+        
         for move in moves:
             holdboard.place_piece(move[0], move[1], player)
             board_value = holdboard.minimax(player, oponent, dif)

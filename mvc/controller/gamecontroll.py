@@ -36,6 +36,7 @@ class GameControll:
                 player = self.model.change_turn(player)
                 continue  
 
+            #Get the other player position
             if player == Players.BLACK_PLAYER and gamemode == self.PVAIMODE:  
                 player_position = self.model.choose_move(difficulty)
 
@@ -45,6 +46,7 @@ class GameControll:
                     self.view.invalid_place_msg()
                     player_position = self.view.get_position()
         
+            
             self.model.place_piece(player_position[0], player_position[1], player)
             player = self.model.change_turn(player)
             counter_finish = 0

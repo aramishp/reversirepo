@@ -37,6 +37,8 @@ class GameConsoleView(GameView):
                 print('Incorrect place, try again')
             except ValueError as e:
                 print(e)
+            except IndexError:
+                print('This location is out of the board, try again')
 
     def display_score(self):
         print(f'Player X, your score is: {self.game.board.score(Players.RED_PLAYER)}')
@@ -46,7 +48,22 @@ class GameConsoleView(GameView):
         print(f'Player {player}, you dont have possible moves.')
 
     def game_mode(self):
-        return int(input('Enter the game mode:\n1 - Player vs AI\n2 - Player vs Player\n'))
+        while True:
+            try:
+                mode = int(input('Enter the game mode:\n1 - Player vs AI\n2 - Player vs Player\n'))
+                if mode == 1 or mode == 2:
+                    return mode
+                print('Not an option, try again')
+            except ValueError as e:
+                print(e)
 
     def select_dif(self):
-        return int(input('Select the difficulty:\n1 - Easy\n2 - Medium\n3 - Hard\n')) - 1
+        while True:
+            try:
+                selection = int(input('Select the difficulty:\n1 - Easy\n2 - Medium\n3 - Hard\n'))
+                if 0 < selection <= 3:
+                    return selection - 1
+                print('That is not an option, try again')
+            except ValueError as e:
+                print(e)
+            
